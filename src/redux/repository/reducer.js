@@ -8,8 +8,8 @@ import {
 } from '../actions';
 
 const INIT_STATE = {
-	repositories: null,
-	userRepositories: null,
+	repositories: 'test',
+	userRepositories: 'teste',
 	error: '',
 	loading: false,
 };

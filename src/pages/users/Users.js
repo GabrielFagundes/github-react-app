@@ -5,7 +5,6 @@ import UserCard from '../../components/styleguide/userCard/UserCard.js'
 import { Container } from './styles'
 
 function Users({ users }) {
-  console.log('usuarios', users)
   return (
     <Container>
       {
@@ -20,8 +19,6 @@ function Users({ users }) {
     </Container>
   )
 }
-
-
 
 const normalizeUser = pathOr([], ['users', 'data', 'items'])
 

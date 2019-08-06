@@ -5,6 +5,8 @@ import { REPOSITORY_GET_LIST_SEARCH, USER_REPOSITORY_GET_LIST_SEARCH } from "../
 import {
   getRepositoryListSuccess,
   getRepositoryListError,
+  getUserRepositoryListSuccess,
+  getUserRepositoryListError,
 } from "./actions";
 
 
@@ -36,9 +38,9 @@ function* getRepositoryListSearch({ payload }) {
 function* getUserRepositoryListSearch({ payload }) {
   try {
     const response = yield call(getUserRepositoryListRequest, payload);
-    yield put(getRepositoryListSuccess(response));
+    yield put(getUserRepositoryListSuccess(response));
   } catch (error) {
-    yield put(getRepositoryListError(error));
+    yield put(getUserRepositoryListError(error));
   }
 }
 
