@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import GithubLogo from '../../../assets/GithubLogo.svg'
 
 export const Container = styled.aside`
   position: fixed;

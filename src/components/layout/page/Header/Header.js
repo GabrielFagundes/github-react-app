@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import { getUserListSearch } from '../../../../redux/actions'
+import { withRouter } from 'react-router-dom'
+import { getUserListSearch, getRepositoryListSearch } from '../../../../redux/actions'
 import {
   Container,
   Title,
@@ -10,7 +11,7 @@ import {
   SearchIcon
 } from './styles'
 
-const PageHeader = ({ getUserListSearch }) => {
+const PageHeader = ({ getUserListSearch, getRepositoryListSearch, history, location }) => {
   return (
     <Container>
       <Title>
@@ -20,7 +21,7 @@ const PageHeader = ({ getUserListSearch }) => {
           }}
         />
         <SearchContainer>
-          <SearchBox placeholder='Search...' onKeyPress={(e) => onEnter(e, getUserListSearch)} />
+          <SearchBox placeholder='Search...' onKeyPress={(e) => onEnter(e, getUserListSearch, getRepositoryListSearch, history, location)} />
           < SearchIcon />
         </SearchContainer>
       </Title>
@@ -29,15 +30,21 @@ const PageHeader = ({ getUserListSearch }) => {
 }
 
 
-const onEnter = (e, getUserListSearch) => {
-  if (e.key === 'Enter' && e.target.value.length > 2) {
-    return getUserListSearch(e.target.value);
+const onEnter = (e, getUserListSearch, getRepositoryListSearch, history, location) => {
+  if (e.key === 'Enter' && e.target.value.length > 0) {
+    if (location.pathname.includes('repositories')) {
+      return getRepositoryListSearch(e.target.value);
+    } else {
+      history.push('/users');
+      return getUserListSearch(e.target.value);
+    }
   }
 }
 
 export default connect(
   null,
   {
-    getUserListSearch
+    getUserListSearch,
+    getRepositoryListSearch
   }
-)(PageHeader);
+)(withRouter(PageHeader));

@@ -28,6 +28,7 @@ export const Title = styled.div`
 `;
 
 export const Description = styled.div`
+    height: 55px;
     font-style: italic;
     opacity: .6;
     overflow: hidden;
@@ -44,20 +45,20 @@ export const Footer = styled.div`
     align-items: flex-end;
     margin-top: 5px;
     font-size: 15px;
-    padding: 30px 5px;
+    padding: 25px 5px;
 `;
 
 export const Counter = styled.div`
    display: flex;
 `;
 
-export const StarIcon = styled(FaStar) `
+export const StarIcon = styled(FaStar)`
     opacity: .6;
     margin-bottom: -1px;
     margin-right: 4px;
 `
 
-export const ForkIcon = styled(FaGitAlt) `
+export const ForkIcon = styled(FaGitAlt)`
     opacity: .6;
     margin-bottom: -1px;
     margin-right: 4px;

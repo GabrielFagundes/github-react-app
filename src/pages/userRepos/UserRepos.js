@@ -7,24 +7,26 @@ import RepoCard from '../../components/styleguide/repoCard/RepoCard'
 function UserRepo({ repos }) {
   console.log(repos)
   return (
-  <Container>
-  {
-    repos && repos.map(repo =>
-      <RepoCard 
-        name={repo.name}
-        description={repo.description}
-        stars={repo.stargazers_count}
-        forks={repo.forks}
-      /> 
-    )
-  }
-  </Container>
-)}
+    <Container>
+      {
+        repos && repos.map(repo =>
+          <RepoCard
+            key={repo.name}
+            name={repo.name}
+            description={repo.description}
+            stars={repo.stargazers_count}
+            forks={repo.forks}
+          />
+        )
+      }
+    </Container>
+  )
+}
 
-const normalizeUserRepos = pathOr([], ['userRepositories', 'data'])
+const normalizeRepos = pathOr([], ['userRepositories', 'data'])
 
 const mapStateToProps = ({ repositoryApp }) => ({
-   repos: normalizeUserRepos(repositoryApp)
+  repos: normalizeRepos(repositoryApp)
 })
 
 export default connect(

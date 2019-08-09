@@ -10,9 +10,9 @@ import {
 } from "./actions";
 
 
-const getRepositoryListRequest = async keyword => {
+const getRepositoryListRequest = async (keyword, q = '') => {
   return await new Promise((success, fail) => {
-    success(api.get(`/search/repositories?q=language:${keyword}&sort=stars&order=desc`));
+    success(api.get(`/search/repositories?q=${q}language:${keyword}&sort=stars&order=desc`));
   })
     .then(response => response)
     .catch(error => error);

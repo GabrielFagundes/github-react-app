@@ -4,13 +4,15 @@ import { PageContainer } from '../components/layout/page/Container/Container'
 import Users from '../pages/users/Users'
 import Repositories from '../pages/repositories/Repositories'
 import UserRepos from '../pages/userRepos/UserRepos'
+import Summary from '../pages/summary/Summary'
 
 const Routes = () => (
   <PageContainer>
     <Switch>
+      <Route exact path="/" component={Users} />
       <Route exact path="/users" component={Users} />
-      <Route exact path="/user/:username/repos" component={UserRepos} />
-      <Route exact path="/repositories" component={Repositories}  />
+      <Route exact path="/users/:username/repos" component={UserRepos} />
+      <Route exact path="/repositories" component={Repositories} />
       <Route component={NoMatch} />
     </Switch>
   </PageContainer>

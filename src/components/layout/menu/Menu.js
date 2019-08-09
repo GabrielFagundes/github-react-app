@@ -16,11 +16,7 @@ function Menu() {
         </MenuHero>
         <MenuItem label='Users' link='/users' />
         <MenuItem label='Repositories' link='/repositories' />
-        <MenuItem label='Sumary' link='/sumary' />
       </Menus>
-      {/* <Footer>
-        <LoginButton /> 
-      </Footer> */}
     </Container>
   );
 }

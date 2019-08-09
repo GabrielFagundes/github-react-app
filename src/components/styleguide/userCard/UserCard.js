@@ -5,10 +5,10 @@ import { getUserRepositoryListSearch } from '../../../redux/actions'
 import { Container, Image, Footer, Name, Icon } from './styles'
 
 function UserCard({ avatar, username = 'notfound', getUserRepositoryListSearch }) {
-  
+
   return (
     <Container>
-      <Link to={`/user/${username}/repos`} onClick={() => getUserRepositoryListSearch(username)}>
+      <Link to={`/users/${username}/repos`} onClick={() => getUserRepositoryListSearch(username)}>
         <Image userImage={avatar} />
         <Footer>
           <Icon />
@@ -22,7 +22,7 @@ function UserCard({ avatar, username = 'notfound', getUserRepositoryListSearch }
 }
 
 export default connect(
-  null, 
+  null,
   {
     getUserRepositoryListSearch
   }
