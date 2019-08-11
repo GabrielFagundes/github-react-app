@@ -10,15 +10,18 @@ import {
 } from "./actions";
 
 
-const getRepositoryListRequest = async (keyword, q = '') => {
+const getRepositoryListRequest = async ({ keyword, filter }) => {
   return await new Promise((success, fail) => {
-    success(api.get(`/search/repositories?q=${q}language:${keyword}&sort=stars&order=desc`));
+    filter ?
+      success(api.get(`/search/repositories?q=language:${keyword}&sort=stars&order=desc`))
+      :
+      success(api.get(`/search/repositories?q=${keyword}&sort=stars&order=desc`));
   })
     .then(response => response)
     .catch(error => error);
 };
 
-const getUserRepositoryListRequest = async keyword => {
+const getUserRepositoryListRequest = async ({ keyword }) => {
   return await new Promise((success, fail) => {
     success(api.get(`/users/${keyword}/repos`));
   })
@@ -36,6 +39,7 @@ function* getRepositoryListSearch({ payload }) {
 }
 
 function* getUserRepositoryListSearch({ payload }) {
+  console.log(payload)
   try {
     const response = yield call(getUserRepositoryListRequest, payload);
     yield put(getUserRepositoryListSuccess(response));

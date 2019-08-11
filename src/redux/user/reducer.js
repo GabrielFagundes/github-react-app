@@ -6,7 +6,7 @@ import {
 
 const INIT_STATE = {
 	users: null,
-	error: '',
+	error: null,
 	loading: false,
 };
 
@@ -17,14 +17,14 @@ export default (state = INIT_STATE, action) => {
 			if (action.payload === '') {
 				return { ...state, users: state.users };
 			} else {
-				return { ...state }
+				return { ...state, loading: true }
 			}
 
 		case USER_GET_LIST_SUCCESS:
-			return { ...state, loading: true, users: action.payload };
+			return { ...state, loading: false, users: action.payload };
 
 		case USER_GET_LIST_ERROR:
-			return { ...state, loading: true, error: action.payload };
+			return { ...state, loading: false, error: action.payload };
 
 		default: return { ...state };
 	}

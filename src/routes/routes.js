@@ -4,7 +4,6 @@ import { PageContainer } from '../components/layout/page/Container/Container'
 import Users from '../pages/users/Users'
 import Repositories from '../pages/repositories/Repositories'
 import UserRepos from '../pages/userRepos/UserRepos'
-import Summary from '../pages/summary/Summary'
 
 const Routes = () => (
   <PageContainer>

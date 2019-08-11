@@ -7,15 +7,15 @@ export const Container = styled.aside`
   width: 250px;
   height: 100%;
   background-color: #5972FC;
-  box-shadow: 6px 0 40px 1px rgba(0,0,0,.4);
+  /* box-shadow: 1px 0 20px rgba(0,0,0,.2); */
 `
 
 export const Logo = styled.div`
   position:absolute;
   padding-top: 20%;
   padding-left: 25%;
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
 `
 
 export const Menus = styled.nav`

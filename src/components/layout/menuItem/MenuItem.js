@@ -4,7 +4,7 @@ import { Container, LinkMenu } from './styles';
 function MenuItem({ link = '/2', activeMenu, onClick, label }) {
   return (
     <Container>
-      <LinkMenu exact to={link}>
+      <LinkMenu to={link}>
         {label}
       </LinkMenu>
     </Container>

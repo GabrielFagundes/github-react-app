@@ -1,23 +1,29 @@
 import React from 'react'
 import { pathOr } from 'ramda'
 import { connect } from 'react-redux'
-import { Container } from './styles'
+import { Container, ImgLoad } from './styles'
 import RepoCard from '../../components/styleguide/repoCard/RepoCard'
+import Loader from '../../assets/loader.gif'
 
-function UserRepo({ repos }) {
+function UserRepo({ repos, loading }) {
   console.log(repos)
   return (
     <Container>
       {
-        repos && repos.map(repo =>
-          <RepoCard
-            key={repo.name}
-            name={repo.name}
-            description={repo.description}
-            stars={repo.stargazers_count}
-            forks={repo.forks}
-          />
-        )
+        loading ?
+          <ImgLoad>
+            <img src={Loader} alt='Loading...' />
+          </ImgLoad>
+          :
+          repos && repos.map(repo =>
+            <RepoCard
+              key={repo.name}
+              name={repo.name}
+              description={repo.description}
+              stars={repo.stargazers_count}
+              forks={repo.forks}
+            />
+          )
       }
     </Container>
   )
@@ -26,7 +32,8 @@ function UserRepo({ repos }) {
 const normalizeRepos = pathOr([], ['userRepositories', 'data'])
 
 const mapStateToProps = ({ repositoryApp }) => ({
-  repos: normalizeRepos(repositoryApp)
+  repos: normalizeRepos(repositoryApp),
+  loading: repositoryApp.loading
 })
 
 export default connect(

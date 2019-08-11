@@ -8,6 +8,7 @@ const GlobalStyle = createGlobalStyle`
   html, body {
     font-family: -apple-system, Helvetica, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     font-size: 15px;
+    font-weight: 400;
     margin: 0;  
     background-color: #FCFBFC;
   }

@@ -1,20 +1,24 @@
 import styled from 'styled-components'
-import { FaAngleLeft, FaSearch } from 'react-icons/fa';
+import { FaAngleLeft } from 'react-icons/fa';
+import BackgroundHeader from '../../../../assets/headerBkg.svg'
 
 export const Container = styled.div`
   position: absolute;
+  display:flex; 
+  align-items: center;
+  justify-content: center;
   top: 0;
   left: 0;
   width: 100%;
-  height: 59px;
+  height: 30px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.065);
-  transition: 
-    height 0.3s cubic-bezier(0.34, 0, 0.58, 1),
-    background-color 1s cubic-bezier(0.34, 0, 0.58, 1),
-    border-color 1s cubic-bezier(0.34, 0, 0.58, 1);
-    animation: fade-in 0.3s cubic-bezier(0.34, 0, 0.58, 1) forwards;
+  background-image: url(${BackgroundHeader});
+  background-size: 120%;
+  background-position-x: -100px;
+  background-position-y: -400px;
+  background-repeat: no-repeat;
   @media (min-width: 700px) {
-    height: 89px;
+    height: 70px;
   }
 `
 export const Title = styled.div`
@@ -46,30 +50,4 @@ export const MdArrowBackIcon = styled(FaAngleLeft)`
   &:hover {
     transform: translateY(-1px)
   }
-`
-
-export const SearchContainer = styled.div`
-  display: flex;
-  align-items: center;
-  width: 100%;
-  justify-content: center;
-`
-
-export const SearchIcon = styled(FaSearch)`
-  opacity: .4;
-  margin-left: -40px;
-`
-
-export const SearchBox = styled.input`
-  width: 550px;
-  height: 40px;
-  padding: 0 20px;
-  border: none;
-  border-radius: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,.2);
-  opacity: .8;
-  text-decoration: none;
-  outline: none;
-  font-size: 1rem;
-  color: #585151;
 `

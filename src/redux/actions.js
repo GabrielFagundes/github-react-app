@@ -13,5 +13,8 @@ export const USER_REPOSITORY_GET_LIST_SEARCH = 'USER_REPOSITORY_GET_LIST_SEARCH'
 export const USER_REPOSITORY_GET_LIST_SUCCESS = 'USER_REPOSITORY_GET_LIST_SUCCESS';
 export const USER_REPOSITORY_GET_LIST_ERROR = 'USER_REPOSITORY_GET_LIST_ERROR';
 
+/* FILTER */
+export const FILTER_LIST = 'FILTER_LIST';
+
 export * from "./user/actions";
 export * from "./repository/actions";

@@ -3,17 +3,18 @@ import {
   REPOSITORY_GET_LIST_SUCCESS,
   REPOSITORY_GET_LIST_ERROR,
   USER_REPOSITORY_GET_LIST_SEARCH,
-	USER_REPOSITORY_GET_LIST_SUCCESS,
-	USER_REPOSITORY_GET_LIST_ERROR,
+  USER_REPOSITORY_GET_LIST_SUCCESS,
+  USER_REPOSITORY_GET_LIST_ERROR,
+  FILTER_LIST,
 } from '../actions';
 
 /**
  * Search for repositories with the given language
  * @param {keyword} language 
  */
-export const getRepositoryListSearch = (keyword) => ({
+export const getRepositoryListSearch = (keyword, filter) => ({
   type: REPOSITORY_GET_LIST_SEARCH,
-  payload: keyword
+  payload: { keyword, filter }
 });
 
 export const getRepositoryListSuccess = (repositories) => ({
@@ -32,7 +33,7 @@ export const getRepositoryListError = (error) => ({
  */
 export const getUserRepositoryListSearch = (keyword) => ({
   type: USER_REPOSITORY_GET_LIST_SEARCH,
-  payload: keyword
+  payload: { keyword }
 });
 
 export const getUserRepositoryListSuccess = (userRepositories) => ({
@@ -44,3 +45,8 @@ export const getUserRepositoryListError = (error) => ({
   type: USER_REPOSITORY_GET_LIST_ERROR,
   payload: error
 });
+
+export const changeFilterList = (value) => ({
+  type: FILTER_LIST,
+  payload: value
+})
